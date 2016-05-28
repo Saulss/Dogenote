@@ -34,6 +34,9 @@ public class MainActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		switch(item.getItemId()){
 			case R.id.action_settings:
+				
+				return true;
+			case R.id.action_searchs:
 				return true;
 		}
 		return super.onOptionsItemSelected(item);
