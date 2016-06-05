@@ -18,7 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/re_userregister"
         android:layout_below="@+id/re_userregister"
-        android:layout_marginTop="38dp"
         android:text="用户名：" />
 
     <EditText
@@ -26,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/re_userregister"
+        android:layout_toRightOf="@+id/re_username"
         android:ems="10" />
 
     <TextView

@@ -54,13 +54,13 @@ public class MainActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch(v.getId()){
-		case R.id.imgBtEditnew:
+		case R.id.imgBtEditnew:           
 			break;
 		case R.id.imgBtSchedule:
 			break;
 		case R.id.imgBtAccount:
 			Intent intentAt = new Intent();
-			intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.RegisterActivity.class );
+			intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.LoginActivity.class );
 			startActivity(intentAt);
 			finish();
 		}

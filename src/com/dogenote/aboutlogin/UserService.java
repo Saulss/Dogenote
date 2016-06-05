@@ -11,7 +11,7 @@ public class UserService {
 	private DbHelper dbHelper;
 
     public UserService(Context context) {
-        dbHelper = new DbHelper(context);
+        dbHelper = new DbHelper(context,"user.db",null,1);
     }
 
     /**
@@ -21,15 +21,16 @@ public class UserService {
      * @param password
      * @return
      */
-    public boolean Login(String username, String password) {
+    public boolean Login(String username, String passwd) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        String sql = "select * from user where username = ? and password = ? ";
+        String sql = "select * from user where username = ? and passwd = ? ";
         Cursor rawQuery = sqLiteDatabase.rawQuery(sql, new String[] { username,
-                password });
+                passwd });
         if (rawQuery.moveToFirst() == true) {
             rawQuery.close();
             return true;
         }
+        rawQuery.close();
         return false;
     }
 
@@ -46,6 +47,7 @@ public class UserService {
         Object obj[] = { user.getUsername(), user.getPasswd(), user.getSex(),
                 user.getAge() };
         sqLiteDatabase.execSQL(sql, obj);
+        sqLiteDatabase.close();
         return true;
     }
 }

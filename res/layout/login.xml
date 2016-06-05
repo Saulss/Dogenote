@@ -58,7 +58,7 @@
         android:text="登录" />
 
     <Button
-        android:id="@+id/btregesiter"
+        android:id="@+id/btregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/btlogin"
