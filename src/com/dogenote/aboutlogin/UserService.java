@@ -14,13 +14,7 @@ public class UserService {
         dbHelper = new DbHelper(context,"user.db",null,1);
     }
 
-    /**
-     * 用户登录
-     * 
-     * @param username
-     * @param password
-     * @return
-     */
+   
     public boolean Login(String username, String passwd) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
         String sql = "select * from user where username = ? and passwd = ? ";
@@ -34,16 +28,10 @@ public class UserService {
         return false;
     }
 
-    /**
-     * 用户注册
-     * 
-     * @param user
-     * @return
-     */
 
     public boolean Register(User user) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-        String sql = "insert into user (username,password,sex,age) values (?,?,?,?)";
+        String sql = "insert into user (username,passwd,sex,age) values (?,?,?,?)";
         Object obj[] = { user.getUsername(), user.getPasswd(), user.getSex(),
                 user.getAge() };
         sqLiteDatabase.execSQL(sql, obj);

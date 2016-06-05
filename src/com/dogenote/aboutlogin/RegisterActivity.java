@@ -13,11 +13,7 @@ import android.widget.Toast;
 import com.dogenote.aboutlogin.User;
 import com.dogenote.aboutlogin.UserService;
 import com.example.dogenote.*;
-/**
- * 注册类
- * 
- *
- */
+
 public class RegisterActivity extends Activity {
     
     private EditText mUsername;
@@ -67,9 +63,9 @@ public class RegisterActivity extends Activity {
                 UserService userService = new UserService(getBaseContext());
                 boolean flag = userService.Register(user);
                 if (flag) {
-                    Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Register success", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(RegisterActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Register false", Toast.LENGTH_SHORT).show();
                 }
                 
             }

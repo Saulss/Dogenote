@@ -15,10 +15,8 @@ import com.dogenote.aboutlogin.UserService;
 import com.dogenote.aboutlogin.DbHelper;
 
 public class LoginActivity extends Activity implements OnClickListener {
-	// 分别为用户名和密码
 	private EditText mUsername;
 	private EditText mPasswd;
-	// 分别为登陆和注册按钮
 	private Button mLogin;
 	private Button mRegister;
 
@@ -54,10 +52,11 @@ public class LoginActivity extends Activity implements OnClickListener {
   
 			boolean flag = userService.Login(userName, passWd);
 			if (flag) {
-				Toast.makeText(LoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
 			} else {
-				Toast.makeText(LoginActivity.this, "登录失败！", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LoginActivity.this, "Login false", Toast.LENGTH_SHORT).show();
 			}
+			break;
 		case R.id.btregister:
 			Intent intent = new Intent();
 			intent.setClass(LoginActivity.this, RegisterActivity.class);

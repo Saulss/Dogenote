@@ -23,9 +23,9 @@
             </intent-filter>
             
         </activity>
-        <activity android:name="com.doge.activity.RegisterActivity" >
+        <activity android:name="com.dogenote.aboutlogin.RegisterActivity">
         </activity>
-        <activity android:name="com.doge.activity.LoginActivity" >
+        <activity android:name="com.dogenote.aboutlogin.LoginActivity">
             
         </activity>
     </application>
