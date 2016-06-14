@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/dogenote"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light" >
         <activity
@@ -28,6 +28,11 @@
         <activity android:name="com.dogenote.aboutlogin.LoginActivity">
             
         </activity>
+        
+        <activity android:name="com.dogenote.extra.noteEdit">
+            
+        </activity>
+        
     </application>
 
 </manifest>
