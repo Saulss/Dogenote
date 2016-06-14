@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/re_userregister"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/re_userregister"
         android:text="用户名：" />
 
@@ -33,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        
         android:layout_below="@+id/re_username"
         android:layout_marginTop="36dp"
         android:text="密码：" />
@@ -42,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/re_passwd"
-        android:layout_alignLeft="@+id/username"
+        android:layout_alignLeft="@+id/re_edituser"
         android:ems="10" />
 
     <Button
@@ -68,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/re_sex"
-        android:layout_alignLeft="@+id/re_password"
+        android:layout_alignLeft="@+id/re_editpasswd"
         android:ems="10" >
     </EditText>
 
@@ -87,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/re_age"
+        android:layout_alignLeft="@+id/re_editsex"
         android:layout_alignBottom="@+id/re_age"
         android:ems="10" />
 

@@ -23,9 +23,6 @@ public class LoginActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if(DbHelper.db == null){
-			Toast.makeText(LoginActivity.this, "Something wrong", Toast.LENGTH_SHORT).show();
-		}
 		
 		setContentView(R.layout.login);
 

@@ -6,17 +6,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DbHelper extends SQLiteOpenHelper {
 	private final static String NAME = "user.db";
-//	public static final String CREATE_TABLE = "CREATE TABLE user (id integer primary key autoincrement ,username varchar(64) not null, passwd varchar(64) not null, sex varchar(64), age integer)";
 	protected static SQLiteDatabase db;
 	private final static int VERSION = 1;
 
-	public DbHelper(Context context, String name, SQLiteDatabase.CursorFactory cursorFactory, int version) {
-		super(context, NAME, cursorFactory, VERSION);
+	public DbHelper(Context context) {
+		super(context, NAME, null, VERSION);
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		String CREATE_TABLE = "create table user(id integer primary key autoincrement,username varchar(20),passwd varchar(20),sex varchar(64),age integer)";
+		String CREATE_TABLE = "create table user(id integer primary key autoincrement,username varchar(20),passwd varchar(20),sex varchar(64),age integer,info Boolean)";
 		db.execSQL(CREATE_TABLE);
 
 	}

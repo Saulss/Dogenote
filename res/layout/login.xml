@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/userlogin"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="36dp"
         android:text="用户名：" />
 
     <EditText
@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
         android:layout_alignBottom="@+id/userpasswd"
+        android:layout_toRightOf="@+id/userpasswd"
         android:layout_alignLeft="@+od/editname"
         android:ems="8" />
 
@@ -53,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/userpasswd"
         android:layout_below="@+id/userpasswd"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="36dp"
         android:text="登录" />
 
@@ -62,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/btlogin"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:layout_toRightOf="@+id/btlogin"
         android:text="注册" />
 

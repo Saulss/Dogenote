@@ -7,6 +7,7 @@ public class User {
 	private String passwd;
 	private String sex;
 	private int age;
+	private String info;
 
 	public User(){
 		super();
@@ -58,4 +59,11 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
 }
