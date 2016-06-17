@@ -18,29 +18,29 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-
-            <ImageButton
+            
+            <ImageView
                 android:id="@+id/imgBtEditnew"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:src="@drawable/edit" />
 
-            <ImageButton
-                android:id="@+id/imgBtSchedule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/imgBtEditnew"
-                android:layout_weight="1"
-                android:src="@drawable/people" />
 
-            <ImageButton
+            
+            <ImageView
+                android:id="@+id/imgBtSchedule"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_toRightOf="@+id/imgBtEditnew"
+                android:src="@drawable/clock" />
+            
+                        <ImageView
                 android:id="@+id/imgBtAccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_toRightOf="@+id/imgBtSchedule"
-                android:layout_weight="1"
-                android:src="@drawable/add2" />
+                android:src="@drawable/people" />
+            
         </LinearLayout>
 
         <View

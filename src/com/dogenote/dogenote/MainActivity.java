@@ -9,10 +9,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-//import android.widget.Button;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class MainActivity extends Activity implements OnClickListener, OnItemLongClickListener, OnItemClickListener {
 
@@ -53,13 +55,15 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		listview.setOnItemClickListener(this);// ?
 		listview.setOnItemLongClickListener(this);
 		
-		ImageButton btAccount = (ImageButton) findViewById(R.id.imgBtAccount);
-		ImageButton btEdit = (ImageButton) findViewById(R.id.imgBtEditnew);
+		ImageView btAccount = (ImageView) findViewById(R.id.imgBtAccount);
+		ImageView btEdit = (ImageView) findViewById(R.id.imgBtEditnew);
 
 		btAccount.setOnClickListener(this);
 		btEdit.setOnClickListener(this);
+	
 
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,11 +81,10 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		switch (item.getItemId()) {
-		case R.id.action_settings:
-
-			return true;
-		case R.id.action_searchs:
-			return true;
+//		case R.id.action_about:
+//
+//			return true;
+		
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -109,9 +112,9 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		}
 	}
 
-	// �����½��ʼǺ��б�Ĵ���
+	// 关于新建笔记和列表的代码
 
-	// ��activity��ʾ��ʱ�����listview
+	// 在activity显示的时候更新listview
 	@Override
 	protected void onStart() {
 		super.onStart();
@@ -119,17 +122,17 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 	}
 
 
-	// ˢ��listview
+	// 刷新listview
 	public void RefreshNotesList() {
-		// ���dataList�Ѿ��е����ݣ�ȫ��ɾ��
-		// ���Ҹ���simp_adapter
+		// 如果dataList已经有的内容，全部删掉
+		// 并且更新simp_adapter
 		int size = dataList.size();
 		if (size > 0) {
 			dataList.removeAll(dataList);
 			simple_adapter.notifyDataSetChanged();
 		}
 
-		// �����ݿ��ȡ��Ϣ
+		// 从数据库读取信息
 		Cursor cursor = DB.query("note", null, null, null, null, null, null);
 		startManagingCursor(cursor);
 		while (cursor.moveToNext()) {
@@ -145,9 +148,9 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		listview.setAdapter(simple_adapter);
 	}
 
-	// ���listview��ĳһ��ĵ�������¼�
+	// 点击listview中某一项的点击监听事件
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// ��ȡlistview�д˸�item�е�����
+		// 获取listview中此个item中的内容
 		String content = listview.getItemAtPosition(arg2) + "";
 		String content1 = content.substring(content.indexOf("=") + 1, content.indexOf(","));
 
@@ -160,24 +163,24 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 
 	}
 
-	// ���listview��ĳһ�ʱ��ĵ���¼�
+	// 点击listview中某一项长时间的点击事件
 	@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, final int arg2, long arg3) {
 		Builder builder = new Builder(this);
-		builder.setTitle("ɾ������־");
-		builder.setMessage("ȷ��ɾ����");
-		builder.setPositiveButton("ȷ��", new DialogInterface.OnClickListener() {
+		builder.setTitle("删除该日志");
+		builder.setMessage("确认删除吗？");
+		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// ��ȡlistview�д˸�item�е�����
-				// ɾ�����к�ˢ��listview������
+				// 获取listview中此个item中的内容
+				// 删除该行后刷新listview的内容
 				String content = listview.getItemAtPosition(arg2) + "";
 				String content1 = content.substring(content.indexOf("=") + 1, content.indexOf(","));
 				DB.delete("note", "content = ?", new String[] { content1 });
 				RefreshNotesList();
 			}
 		});
-		builder.setNegativeButton("ȡ��", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 			}
