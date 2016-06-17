@@ -103,7 +103,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 			break;
 		case R.id.imgBtAccount:
 			Intent intentAt = new Intent();
-			intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.Login.class);
+			intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.LoginActivity.class);
 			startActivity(intentAt);
 			finish();
 		}

@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:text="注册" />
-	<!--  
+	
     <TextView
         android:id="@+id/re_sex"
         android:layout_width="wrap_content"
@@ -92,5 +92,5 @@
         android:layout_alignLeft="@+id/re_editsex"
         android:layout_alignBottom="@+id/re_age"
         android:ems="10" />
-	-->
+	
 </RelativeLayout>
