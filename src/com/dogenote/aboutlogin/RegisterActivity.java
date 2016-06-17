@@ -30,8 +30,8 @@ public class RegisterActivity extends Activity {
 
 		mUsername = (EditText) findViewById(R.id.re_edituser);
 		mPasswd = (EditText) findViewById(R.id.re_editpasswd);
-		mSex = (EditText) findViewById(R.id.re_editsex);
-		mAge = (EditText) findViewById(R.id.re_editage);
+//		mSex = (EditText) findViewById(R.id.re_editsex);
+//		mAge = (EditText) findViewById(R.id.re_editage);
 
 		mRegister = (Button) findViewById(R.id.re_btregister);
 

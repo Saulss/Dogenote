@@ -2,7 +2,7 @@ package com.dogenote.aboutlogin;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+//import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.dogenote.R;
 import com.dogenote.aboutlogin.UserService;
-import com.dogenote.aboutlogin.DbHelper;
+//import com.dogenote.aboutlogin.DbHelper;
 
 public class LoginActivity extends Activity implements OnClickListener {
 	private EditText mUsername;
@@ -53,6 +53,10 @@ public class LoginActivity extends Activity implements OnClickListener {
 			} else {
 				Toast.makeText(LoginActivity.this, "Login false", Toast.LENGTH_SHORT).show();
 			}
+			Intent intentlogin = new Intent();
+			intentlogin.setClass(LoginActivity.this, com.dogenote.dogenote.MainActivity.class);
+			LoginActivity.this.startActivity(intentlogin);
+			LoginActivity.this.finish();
 			break;
 		case R.id.btregister:
 			Intent intent = new Intent();

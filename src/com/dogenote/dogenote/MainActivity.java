@@ -12,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.Button;
+//import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -103,15 +103,15 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 			break;
 		case R.id.imgBtAccount:
 			Intent intentAt = new Intent();
-			intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.LoginActivity.class);
+			intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.Login.class);
 			startActivity(intentAt);
 			finish();
 		}
 	}
 
-	// ¹ØÓÚÐÂ½¨±Ê¼ÇºÍÁÐ±íµÄ´úÂë
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½Ê¼Çºï¿½ï¿½Ð±ï¿½Ä´ï¿½ï¿½ï¿½
 
-	// ÔÚactivityÏÔÊ¾µÄÊ±ºò¸üÐÂlistview
+	// ï¿½ï¿½activityï¿½ï¿½Ê¾ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½listview
 	@Override
 	protected void onStart() {
 		super.onStart();
@@ -119,17 +119,17 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 	}
 
 
-	// Ë¢ÐÂlistview
+	// Ë¢ï¿½ï¿½listview
 	public void RefreshNotesList() {
-		// Èç¹ûdataListÒÑ¾­ÓÐµÄÄÚÈÝ£¬È«²¿É¾µô
-		// ²¢ÇÒ¸üÐÂsimp_adapter
+		// ï¿½ï¿½ï¿½dataListï¿½Ñ¾ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ý£ï¿½È«ï¿½ï¿½É¾ï¿½ï¿½
+		// ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½simp_adapter
 		int size = dataList.size();
 		if (size > 0) {
 			dataList.removeAll(dataList);
 			simple_adapter.notifyDataSetChanged();
 		}
 
-		// ´ÓÊý¾Ý¿â¶ÁÈ¡ÐÅÏ¢
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½È¡ï¿½ï¿½Ï¢
 		Cursor cursor = DB.query("note", null, null, null, null, null, null);
 		startManagingCursor(cursor);
 		while (cursor.moveToNext()) {
@@ -145,9 +145,9 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		listview.setAdapter(simple_adapter);
 	}
 
-	// µã»÷listviewÖÐÄ³Ò»ÏîµÄµã»÷¼àÌýÊÂ¼þ
+	// ï¿½ï¿½ï¿½listviewï¿½ï¿½Ä³Ò»ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// »ñÈ¡listviewÖÐ´Ë¸öitemÖÐµÄÄÚÈÝ
+		// ï¿½ï¿½È¡listviewï¿½Ð´Ë¸ï¿½itemï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
 		String content = listview.getItemAtPosition(arg2) + "";
 		String content1 = content.substring(content.indexOf("=") + 1, content.indexOf(","));
 
@@ -160,24 +160,24 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 
 	}
 
-	// µã»÷listviewÖÐÄ³Ò»Ïî³¤Ê±¼äµÄµã»÷ÊÂ¼þ
+	// ï¿½ï¿½ï¿½listviewï¿½ï¿½Ä³Ò»ï¿½î³¤Ê±ï¿½ï¿½Äµï¿½ï¿½ï¿½Â¼ï¿½
 	@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, final int arg2, long arg3) {
 		Builder builder = new Builder(this);
-		builder.setTitle("É¾³ý¸ÃÈÕÖ¾");
-		builder.setMessage("È·ÈÏÉ¾³ýÂð£¿");
-		builder.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		builder.setTitle("É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾");
+		builder.setMessage("È·ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½");
+		builder.setPositiveButton("È·ï¿½ï¿½", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// »ñÈ¡listviewÖÐ´Ë¸öitemÖÐµÄÄÚÈÝ
-				// É¾³ý¸ÃÐÐºóË¢ÐÂlistviewµÄÄÚÈÝ
+				// ï¿½ï¿½È¡listviewï¿½Ð´Ë¸ï¿½itemï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+				// É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½Ë¢ï¿½ï¿½listviewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				String content = listview.getItemAtPosition(arg2) + "";
 				String content1 = content.substring(content.indexOf("=") + 1, content.indexOf(","));
 				DB.delete("note", "content = ?", new String[] { content1 });
 				RefreshNotesList();
 			}
 		});
-		builder.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+		builder.setNegativeButton("È¡ï¿½ï¿½", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 			}

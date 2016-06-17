@@ -15,7 +15,6 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.dogenote.dogenote.MainActivity;
 import com.example.dogenote.R;
 
 public class noteEdit extends Activity implements OnClickListener {
@@ -24,8 +23,8 @@ public class noteEdit extends Activity implements OnClickListener {
     private Button btn_ok;
     private Button btn_cancel;
     private NoteDateBaseHelper DBHelper;
-    public int enter_state = 0;//ÓÃÀ´Çø·ÖÊÇÐÂ½¨Ò»¸önote»¹ÊÇ¸ü¸ÄÔ­À´µÄnote
-    public String last_content;//ÓÃÀ´»ñÈ¡edittextÄÚÈÝ
+    public int enter_state = 0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½Ò»ï¿½ï¿½noteï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½note
+    public String last_content;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡edittextï¿½ï¿½ï¿½ï¿½
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +41,13 @@ public class noteEdit extends Activity implements OnClickListener {
         btn_cancel = (Button) findViewById(R.id.btn_cancel);
         DBHelper = new NoteDateBaseHelper(this);
 
-        //»ñÈ¡´ËÊ±Ê±¿ÌÊ±¼ä
+        //ï¿½ï¿½È¡ï¿½ï¿½Ê±Ê±ï¿½ï¿½Ê±ï¿½ï¿½
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String dateString = sdf.format(date);
         tv_date.setText(dateString);
 
-        //½ÓÊÕÄÚÈÝºÍid
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýºï¿½id
         Bundle myBundle = this.getIntent().getExtras();
         last_content = myBundle.getString("info");
         enter_state = myBundle.getInt("enter_state");
@@ -63,28 +62,28 @@ public class noteEdit extends Activity implements OnClickListener {
         switch (view.getId()) {
             case R.id.btn_ok:
                 SQLiteDatabase db = DBHelper.getReadableDatabase();
-                // »ñÈ¡edittextÄÚÈÝ
+                // ï¿½ï¿½È¡edittextï¿½ï¿½ï¿½ï¿½
                 String content = et_content.getText().toString();
 
-                // Ìí¼ÓÒ»¸öÐÂµÄÈÕÖ¾
+                // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½Ö¾
                 if (enter_state == 0) {
                     if (!content.equals("")) {
-                        //»ñÈ¡´ËÊ±Ê±¿ÌÊ±¼ä
+                        //ï¿½ï¿½È¡ï¿½ï¿½Ê±Ê±ï¿½ï¿½Ê±ï¿½ï¿½
                         Date date = new Date();
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                         String dateString = sdf.format(date);
 
-                        //ÏòÊý¾Ý¿âÌí¼ÓÐÅÏ¢
+                        //ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
                         ContentValues values = new ContentValues();
                         values.put("content", content);
                         values.put("date", dateString);
                         db.insert("note", null, values);
                         finish();
                     } else {
-                        Toast.makeText(noteEdit.this, "ÇëÊäÈëÄãµÄÄÚÈÝ£¡", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(noteEdit.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½", Toast.LENGTH_SHORT).show();
                     }
                 }
-                // ²é¿´²¢ÐÞ¸ÄÒ»¸öÒÑÓÐµÄÈÕÖ¾
+                // ï¿½é¿´ï¿½ï¿½ï¿½Þ¸ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ö¾
                 else {
                     ContentValues values = new ContentValues();
                     values.put("content", content);

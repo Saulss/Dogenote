@@ -4,6 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-sdk
         android:minSdkVersion="18"
         android:targetSdkVersion="22" />
@@ -21,18 +24,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
-        <activity android:name="com.dogenote.aboutlogin.RegisterActivity">
+        <activity android:name="com.dogenote.aboutlogin.RegisterActivity" >
         </activity>
-        <activity android:name="com.dogenote.aboutlogin.LoginActivity">
-            
+        <activity android:name="com.dogenote.aboutlogin.LoginActivity" >
         </activity>
-        
-        <activity android:name="com.dogenote.extra.noteEdit">
-            
+        <activity android:name="com.dogenote.extra.noteEdit" >
         </activity>
-        
+        <activity android:name="com.dogenote.aboutlogin.Login" >
+        </activity>
+        <activity android:name="com.dogenote.aboutlogin.Register" >
+        </activity>
     </application>
 
 </manifest>

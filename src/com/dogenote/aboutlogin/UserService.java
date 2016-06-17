@@ -37,7 +37,7 @@ public class UserService {
 
 	public boolean changelogininfo(String username, String passwd) {
 
-		User user = new User();
+//		User user = new User();
 		SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
 		String sql = "update user set info = 1 where username = ? and passwd = ?";
 		sqLiteDatabase.execSQL(sql);
