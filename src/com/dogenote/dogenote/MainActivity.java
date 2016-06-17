@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
@@ -29,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class MainActivity extends Activity implements OnClickListener, OnItemLongClickListener, OnItemClickListener {
 
@@ -53,13 +55,15 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		listview.setOnItemClickListener(this);// ?
 		listview.setOnItemLongClickListener(this);
 		
-		ImageButton btAccount = (ImageButton) findViewById(R.id.imgBtAccount);
-		ImageButton btEdit = (ImageButton) findViewById(R.id.imgBtEditnew);
+		ImageView btAccount = (ImageView) findViewById(R.id.imgBtAccount);
+		ImageView btEdit = (ImageView) findViewById(R.id.imgBtEditnew);
 
 		btAccount.setOnClickListener(this);
 		btEdit.setOnClickListener(this);
+	
 
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,11 +81,10 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		switch (item.getItemId()) {
-		case R.id.action_settings:
+		case R.id.action_about:
 
 			return true;
-		case R.id.action_searchs:
-			return true;
+		
 		}
 		return super.onOptionsItemSelected(item);
 	}

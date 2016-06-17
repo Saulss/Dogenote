@@ -16,5 +16,11 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <style name="myActionBarStyle" parent="android:Widget.ActionBar" >  
+        <item name="android:background">#000000</item>  
+    </style> 
+      
+    
 
 </resources>

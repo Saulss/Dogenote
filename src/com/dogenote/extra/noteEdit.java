@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +22,8 @@ import com.example.dogenote.R;
 public class noteEdit extends Activity implements OnClickListener {
     private TextView tv_date;
     private EditText et_content;
-    private Button btn_ok;
-    private Button btn_cancel;
+    private ImageView btn_ok;
+    private ImageView btn_cancel;
     private NoteDateBaseHelper DBHelper;
     public int enter_state = 0;//用来区分是新建一个note还是更改原来的note
     public String last_content;//用来获取edittext内容
@@ -38,8 +39,8 @@ public class noteEdit extends Activity implements OnClickListener {
     private void InitView() {
         tv_date = (TextView) findViewById(R.id.tv_date);
         et_content = (EditText) findViewById(R.id.et_content);
-        btn_ok = (Button) findViewById(R.id.btn_ok);
-        btn_cancel = (Button) findViewById(R.id.btn_cancel);
+        btn_ok = (ImageView) findViewById(R.id.btn_ok);
+        btn_cancel = (ImageView) findViewById(R.id.btn_cancel);
         DBHelper = new NoteDateBaseHelper(this);
 
         //获取此时时刻时间
