@@ -35,7 +35,7 @@ public class InfoActivity extends Activity implements OnClickListener{
 		Service.showinfo(user);
 		Username.setText(user.getUsername());
 		Sex.setText(user.getSex());
-//		Age.setText(getString(user.getAge()));
+		Age.setText(String.valueOf(user.getAge()));
 	}
 	@Override
 	public void onClick(View v) {
