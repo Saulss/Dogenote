@@ -23,6 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.dogenote.aboutlogin.InfoActivity;
+import com.dogenote.aboutlogin.LoginActivity;
+import com.dogenote.aboutlogin.UserService;
 import com.dogenote.extra.NoteDateBaseHelper;
 import com.dogenote.extra.noteEdit;
 import com.example.dogenote.R;
@@ -40,7 +43,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 	private TextView tv_content;
 	private NoteDateBaseHelper DbHelper;
 	private SQLiteDatabase DB;
-
+	private UserService userService;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,7 +54,9 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		dataList = new ArrayList<Map<String, Object>>();
 		DbHelper = new NoteDateBaseHelper(this);
 		DB = DbHelper.getReadableDatabase();
-
+		
+		userService = new UserService(this);
+		
 		listview.setOnItemClickListener(this);// ?
 		listview.setOnItemLongClickListener(this);
 		
@@ -61,7 +66,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		btAccount.setOnClickListener(this);
 		btEdit.setOnClickListener(this);
 	
-
+		
 	}
 
 
@@ -105,14 +110,25 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 		case R.id.imgBtSchedule:
 			break;
 		case R.id.imgBtAccount:
+			boolean change_view  = userService.ACSelect();
 			Intent intentAt = new Intent();
-			intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.LoginActivity.class);
-			startActivity(intentAt);
-			finish();
+			if(change_view){
+				intentAt.setClass(this, InfoActivity.class);
+				this.startActivity(intentAt);
+				this.finish();
+			} else{
+				
+				intentAt.setClass(MainActivity.this, com.dogenote.aboutlogin.LoginActivity.class);
+				startActivity(intentAt);
+				finish();
+			}
+			
+			default:
+				break;
 		}
 	}
 
-	// 关于新建笔记和列表的代码
+	// **********************************************************关于新建笔记和列表的代码******************************************
 
 	// 在activity显示的时候更新listview
 	@Override

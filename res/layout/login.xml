@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/userlogin"
         android:layout_marginTop="36dp"
-        android:text="用户名：" />
+        android:text="Username：" />
 
     <EditText
         android:id="@+id/editname"
@@ -39,7 +39,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/username"
         android:layout_marginTop="36dp"
-        android:text="密码：" />
+        android:text="Password：" />
 
     <EditText
         android:id="@+id/editpasswd"
@@ -59,7 +59,7 @@
         android:layout_below="@+id/userpasswd"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="36dp"
-        android:text="登录" />
+        android:text="Sign in" />
 
     <Button
         android:id="@+id/btregister"
@@ -68,7 +68,7 @@
         android:layout_alignBottom="@+id/btlogin"
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@+id/btlogin"
-        android:text="注册" />
+        android:text="Sign up" />
     
     </RelativeLayout>
 

@@ -13,19 +13,19 @@
             android:id="@+id/s_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Username: " />
 
         <TextView
             android:id="@+id/s_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Sex: " />
 
         <TextView
             android:id="@+id/s_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Age: " />
 
         
     </LinearLayout>
@@ -52,5 +52,11 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
     </LinearLayout>
+
+     <Button
+         android:id="@+id/logout"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Log out" />
 
 </LinearLayout>

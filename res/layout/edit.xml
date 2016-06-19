@@ -11,7 +11,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
-            android:text="编辑时间"
+            android:text="Edit time"
             android:textColor="#f000" 
             android:textSize="17dp"/>
 
@@ -28,7 +28,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="start"
-            android:hint="此处记录备忘事件"
+            android:hint="You can start here..."
             android:textSize="20sp" />"
 
         <LinearLayout

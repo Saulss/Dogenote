@@ -23,7 +23,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.login);
 
 		mUsername = (EditText) findViewById(R.id.editname);
@@ -46,18 +46,31 @@ public class LoginActivity extends Activity implements OnClickListener {
 			String passWd = mPasswd.getText().toString().trim();
 
 			UserService userService = new UserService(LoginActivity.this);
-  
+			
+			boolean info = userService.showaccount(userName, passWd);
 			boolean flag = userService.Login(userName, passWd);
-			if (flag) {
+			if (flag && info) {
 				Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
 			} else {
 				Toast.makeText(LoginActivity.this, "Login false", Toast.LENGTH_SHORT).show();
 			}
+//			AccountService accountService = new AccountService(LoginActivity.this);
+//			boolean change_view = accountService.Select(userName, passWd);
+			boolean change_view = userService.Select(userName, passWd);
 			Intent intentlogin = new Intent();
-			intentlogin.setClass(LoginActivity.this, com.dogenote.dogenote.MainActivity.class);
-			LoginActivity.this.startActivity(intentlogin);
-			LoginActivity.this.finish();
+			if(change_view){
+					intentlogin.setClass(LoginActivity.this, InfoActivity.class);
+					LoginActivity.this.startActivity(intentlogin);
+					LoginActivity.this.finish();
+				
+				
+			} else {
+				intentlogin.setClass(LoginActivity.this, com.dogenote.dogenote.MainActivity.class);
+				LoginActivity.this.startActivity(intentlogin);
+				LoginActivity.this.finish();
+			}
 			break;
+			
 		case R.id.btregister:
 			Intent intent = new Intent();
 			intent.setClass(LoginActivity.this, RegisterActivity.class);

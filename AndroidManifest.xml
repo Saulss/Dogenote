@@ -4,17 +4,15 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-
-
     <uses-sdk
-        android:minSdkVersion="18"
+        android:minSdkVersion="21"
         android:targetSdkVersion="22" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/dogenote"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Holo.Light" >
+        android:theme="@android:style/Theme.Material.Light.DarkActionBar" >
         <activity
             android:name="com.dogenote.dogenote.MainActivity"
             android:label="@string/app_name" >
@@ -24,15 +22,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.dogenote.aboutlogin.RegisterActivity" >
+        <activity
+            android:name="com.dogenote.aboutlogin.RegisterActivity"
+            android:label="Sign up" >
         </activity>
-        <activity android:name="com.dogenote.aboutlogin.LoginActivity" >
+        <activity
+            android:name="com.dogenote.aboutlogin.LoginActivity"
+            android:label="Sign in" >
         </activity>
-        <activity android:name="com.dogenote.extra.noteEdit" >
+        <activity
+            android:name="com.dogenote.extra.noteEdit"
+            android:label="Add new notes" >
         </activity>
-        <activity android:name="com.dogenote.aboutlogin.Login" >
-        </activity>
-        <activity android:name="com.dogenote.aboutlogin.Register" >
+        <activity
+            android:name="com.dogenote.aboutlogin.InfoActivity"
+            android:label="Account Info" >
         </activity>
     </application>
 
