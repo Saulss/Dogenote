@@ -2,61 +2,78 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:layout_marginTop="120dp"
+        	android:layout_marginLeft="90dp"
         >
-        <TextView
-            android:id="@+id/s_username"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username: " />
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/s_sex"
+            <TextView
+                android:id="@+id/s_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username: " />
+
+            <TextView
+                android:id="@+id/s_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Sex: " />
+
+            <TextView
+                android:id="@+id/s_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Age: " />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sex: " />
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/s_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Age: " />
+            <TextView
+                android:id="@+id/c_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:text="TextView" />
 
-        
+            <TextView
+                android:id="@+id/c_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/c_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:text="TextView" />
+        </LinearLayout>
     </LinearLayout>
-     <LinearLayout
+
+    <Button
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:orientation="vertical"
-        >
-        <TextView
-            android:id="@+id/c_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/c_sex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/c_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
-
-     <Button
-         android:id="@+id/logout"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Log out" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="115dp"
+        android:text="Log out" />
 
 </LinearLayout>
