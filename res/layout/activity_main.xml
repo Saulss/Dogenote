@@ -6,8 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.dogenote.dogenote.MainActivity"
-    >
+    tools:context="com.dogenote.dogenote.MainActivity" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -18,43 +17,42 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
-            
+
             <ImageView
                 android:id="@+id/imgBtEditnew"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
-                android:src="@drawable/edit" />
+                android:src="@drawable/edit"
+                android:visibility="gone" />
 
-
-            
             <ImageView
                 android:id="@+id/imgBtSchedule"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_toRightOf="@+id/imgBtEditnew"
+                android:visibility="gone"
                 android:src="@drawable/clock" />
-            
-                        <ImageView
+
+            <ImageView
                 android:id="@+id/imgBtAccount"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_toRightOf="@+id/imgBtSchedule"
+                android:visibility="gone"
                 android:src="@drawable/people" />
-            
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="1px"
             android:background="#000000" />
-        
-         <ListView
+
+        <ListView
             android:id="@+id/listview"
-            android:layout_margin="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" >
         </ListView>
     </LinearLayout>
-
 
 </RelativeLayout>

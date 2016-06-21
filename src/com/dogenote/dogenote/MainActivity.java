@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,7 +91,34 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 							  // case R.id.action_about:
 							  //
 							  // return true;
-							  
+					case R.id.accounts:
+						boolean change_view = userService.ACSelect();
+						Intent intentAt = new Intent();
+						if (change_view) {
+								  intentAt.setClass(this, InfoActivity.class);
+								  this.startActivity(intentAt);
+								  // this.finish();
+						} else {
+								  
+								  intentAt.setClass(MainActivity.this,
+													  com.dogenote.aboutlogin.LoginActivity.class);
+								  startActivity(intentAt);
+								  // finish();
+						}
+						break;
+					case R.id.edit:
+						Intent intentEdit = new Intent();
+						intentEdit.setClass(MainActivity.this, com.dogenote.extra.noteEdit.class);
+						Bundle bundle = new Bundle();
+						bundle.putString("info", "");
+						bundle.putInt("enter_state", 0);
+						intentEdit.putExtras(bundle);
+						startActivity(intentEdit);
+						// finish();
+						break;  
+					case R.id.interesting:
+						Toast.makeText(this, " ギリギリ愛 ~キリキリ舞", Toast.LENGTH_SHORT).show();
+						break;
 					}
 					return super.onOptionsItemSelected(item);
 		  }
@@ -130,26 +158,26 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 					}
 		  }
 		  
-		  // **********************************************************关于新建笔记和列表的代码******************************************
+		  // **********************************************************鍏充簬鏂板缓绗旇鍜屽垪琛ㄧ殑浠ｇ爜******************************************
 		  
-		  // 在activity显示的时候更新ListView
+		  // 鍦╝ctivity鏄剧ず鐨勬椂鍊欐洿鏂癓istView
 		  @Override
 		  protected void onStart() {
 					super.onStart();
 					RefreshNotesList();
 		  }
 		  
-		  // 刷新ListView
+		  // 鍒锋柊ListView
 		  public void RefreshNotesList() {
-					// 如果dataList已经有的内容，全部删掉
-					// 并且更新simp_adapter
+					// 濡傛灉dataList宸茬粡鏈夌殑鍐呭锛屽叏閮ㄥ垹鎺�
+					// 骞朵笖鏇存柊simp_adapter
 					int size = dataList.size();
 					if (size > 0) {
 							  dataList.removeAll(dataList);
 							  simple_adapter.notifyDataSetChanged();
 					}
 					
-					// 从数据库读取信息
+					// 浠庢暟鎹簱璇诲彇淇℃伅
 					Cursor cursor = DB.query("note", null, null, null, null, null, null);
 					startManagingCursor(cursor);
 					while (cursor.moveToNext()) {
@@ -166,9 +194,9 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 					listview.setAdapter(simple_adapter);
 		  }
 		  
-		  // 点击ListView中某一项的点击监听事件
+		  // 鐐瑰嚮ListView涓煇涓�椤圭殑鐐瑰嚮鐩戝惉浜嬩欢
 		  public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-					// 获取ListView中此个item中的内容
+					// 鑾峰彇ListView涓涓猧tem涓殑鍐呭
 					String content = listview.getItemAtPosition(arg2) + "";
 					String content1 = content.substring(content.indexOf("=") + 1, content.indexOf(","));
 					
@@ -181,17 +209,17 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 					
 		  }
 		  
-		  // 点击ListView中某一项长时间的点击事件
+		  // 鐐瑰嚮ListView涓煇涓�椤归暱鏃堕棿鐨勭偣鍑讳簨浠�
 		  @Override
 		  public boolean onItemLongClick(AdapterView<?> arg0, View arg1, final int arg2, long arg3) {
 					Builder builder = new Builder(this);
-					builder.setTitle("删除该日志");
-					builder.setMessage("确认删除吗？");
-					builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+					builder.setTitle("Do you want to delete this note?");
+					builder.setMessage("Are you sure?");
+					builder.setPositiveButton("Sure", new DialogInterface.OnClickListener() {
 							  @Override
 							  public void onClick(DialogInterface dialog, int which) {
-										// 获取ListView中此个item中的内容
-										// 删除该行后刷新ListView的内容
+										// 鑾峰彇ListView涓涓猧tem涓殑鍐呭
+										// 鍒犻櫎璇ヨ鍚庡埛鏂癓istView鐨勫唴瀹�
 										String content = listview.getItemAtPosition(arg2) + "";
 										String content1 = content.substring(content.indexOf("=") + 1,
 															content.indexOf(","));
@@ -199,7 +227,7 @@ public class MainActivity extends Activity implements OnClickListener, OnItemLon
 										RefreshNotesList();
 							  }
 					});
-					builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
 							  @Override
 							  public void onClick(DialogInterface dialog, int which) {
 							  }

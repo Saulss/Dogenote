@@ -6,8 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class NoteDateBaseHelper extends SQLiteOpenHelper {
 		  
-		  public static final String CreateNote = "create table note (" + "id integer primary key autoincrement, "
-							  + "content text , " + "date text)";
+		  public static final String CreateNote = "create table note (id integer primary key autoincrement,content text , date text, alerttime varchar(60))";
 		  
 		  public NoteDateBaseHelper(Context context) {
 					super(context, "note", null, 1);
