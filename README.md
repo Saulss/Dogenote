@@ -1,4 +1,4 @@
 # Dogenote
-My Android homework.And fuck it!
-
-#Just a shit !
+My Android homework.
+And have so many bugs.
+interesting
